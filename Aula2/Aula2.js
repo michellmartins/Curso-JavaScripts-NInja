@@ -61,7 +61,7 @@ function TresElementos(a,b,c) {
 
     return `Preencha todos os valores corretamente`
   
-} else
+} 
 
    return  (a * b * c) + 2
 
