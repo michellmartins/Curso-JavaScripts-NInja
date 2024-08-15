@@ -6,7 +6,7 @@ para o contrário.
 
 let isTruthy = function (a) {
 
-    if (1) {a = true} else {a = false}
+    if (1) { a = true } else { a = false }
 }
 
 console.log(isTruthy())
@@ -15,7 +15,7 @@ console.log(isTruthy())
 
 let isTruthy2 = function (b) {
 
-    if (" ") {b = true} else {b = false}
+    if (" ") { b = true } else { b = false }
 }
 
 console.log(isTruthy2())
@@ -38,15 +38,15 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-let carro = { 
+let carro = {
 
-    marca: 'Chevrolet' ,
-    modelo: 'Celta' ,
-    placa: 'bra001' ,
-    ano: 2024 ,
-    cor: 'Preto' ,
-    quantasPortas: 4 ,
-    assentos: 5 ,
+    marca: 'Chevrolet',
+    modelo: 'Celta',
+    placa: 'bra001',
+    ano: 2024,
+    cor: 'Preto',
+    quantasPortas: 4,
+    assentos: 5,
     quantidadesPessoas: 0
 
 }
@@ -63,9 +63,7 @@ carro.mudaCor = function () {
     carro.cor = 'Vermelho'
 }
 
-console.log(carro.mudaCor())
 
-console.log(carro)
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
@@ -128,6 +126,28 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 
+carro.pessoa = function () {
+
+    if (carro.quantidadesPessoas === 0) {
+
+        return `Já temos ${carro.quantidadesPessoas} pessoas `
+
+    } else if (carro.quantidadesPessoas === carro.assentos) {
+
+        return `O carro ja está lotado`
+    
+    }else if (carro.quantidadesPessoas < carro.assentos ) {
+
+        sobra = carro.assentos - carro.quantidadesPessoas 
+
+        return `Só cabem mais ${sobra}(duas) pessoa(s)`
+        
+    }else if (sobra === 1 )
+        return `Só cabe mais ${sobra}(uma) Pessoa`
+    }
+
+
+console.log(carro.pessoa())
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -138,20 +158,38 @@ retornar algum valor.
 Qual a cor atual do carro?
 */
 
+console.log(carro.cor) // Preto
+ 
 
 // Mude a cor do carro para vermelho.
 
+console.log(carro.mudaCor())
+console.log(carro.cor)
+
 
 // E agora, qual a cor do carro?
+
+//Vermelho
 
 
 // Mude a cor do carro para verde musgo.
 
+carro.mudaCor = function () {
+
+    carro.cor = 'Verde Musgo'
+}
+
 
 // E agora, qual a cor do carro?
 
+console.log(carro.mudaCor())
+console.log(carro.cor)
+
 
 // Qual a marca e modelo do carro?
+
+console.log(carro.marca)
+console.log(carro.modelo)
 
 
 // Adicione 2 pessoas no carro.
