@@ -6,24 +6,39 @@ para o contrário.
 
 let isTruthy = function (a) {
 
-    if (1) { a = true } else { a = false }
+  //   if (a) { return true }  { return  false } 1º FORMA
+
+  //   return a ? true : false // 2º FORMA
+
+  return !!a // 3º FORMA
 }
 
-console.log(isTruthy())
+
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 
-let isTruthy2 = function (b) {
+console.log(isTruthy(false))
+console.log(isTruthy(null))
+console.log(isTruthy(undefined))
+console.log(isTruthy(0))
+console.log(isTruthy(-0))
+console.log(isTruthy(''))
+console.log(isTruthy(NaN))
 
-    if (" ") { b = true } else { b = false }
-}
 
-console.log(isTruthy2())
-
-
+console.log('***********************')
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
+console.log(isTruthy('Michell'))
+console.log(isTruthy('1'))
+console.log(isTruthy([]))
+console.log(isTruthy({}))
+console.log(isTruthy(' '))
+console.log(isTruthy(function() {}))
+console.log(isTruthy(20 * 3 ))
+
+
 
 
 /*
@@ -44,7 +59,7 @@ let carro = {
     modelo: 'Celta',
     placa: 'bra001',
     ano: 2024,
-    cor: 'Preto',
+    cor: 'Vermelho',
     quantasPortas: 4,
     assentos: 5,
     quantidadesPessoas: 0
@@ -55,12 +70,12 @@ console.log(carro)
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
-passado por parâmetro.
+pass ado por parâmetro.
 */
 
-carro.mudaCor = function () {
+carro.mudaCor = function(cor) {
 
-    carro.cor = 'Vermelho'
+    carro.cor = cor
 }
 
 
@@ -104,7 +119,7 @@ Para retornar os valores de marca e modelo, utilize os métodos criados.
 
 carro.obterMarcaMOdelo = function () {
 
-    return `Esse carro é um ${carro.obterMarca()} ${carro.obterModelo()}`
+    return `Esse carro é da marca ${carro.obterMarca()} do modelo ${carro.obterModelo()}`
 }
 
 console.log(carro.obterMarcaMOdelo())
@@ -126,28 +141,37 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 
-carro.pessoa = function () {
+carro.pessoa = function Number(numeroPessoas) {
 
-    if (carro.quantidadesPessoas === 0) {
+    let totalPessoas = (carro.quantidadesPessoas + numeroPessoas)
+
+    if (carro.quantidadesPessoas === carro.assentos && totalPessoas >= carro.assentos) {
+
+        
+        return `O carro ja está lotado`
+    }
+     
+    if (totalPessoas > carro.assentos ) {
+
+        let vagasPessoas = carro.assentos  - carro.quantidadesPessoas 
+        let pluralOuSingular = vagasPessoas === 1 ? 'Pessoa' : 'Pessoas'
+
+        return `Só cabem mais ${vagasPessoas} ${pluralOuSingular}`
+        
+    }
+    
+    carro.quantidadesPessoas += numeroPessoas
 
         return `Já temos ${carro.quantidadesPessoas} pessoas `
 
-    } else if (carro.quantidadesPessoas === carro.assentos) {
+  } 
+   console.log(carro.pessoa(8))
 
-        return `O carro ja está lotado`
-    
-    }else if (carro.quantidadesPessoas < carro.assentos ) {
+  
 
-        sobra = carro.assentos - carro.quantidadesPessoas 
+ 
+   
 
-        return `Só cabem mais ${sobra}(duas) pessoa(s)`
-        
-    }else if (sobra === 1 )
-        return `Só cabe mais ${sobra}(uma) Pessoa`
-    }
-
-
-console.log(carro.pessoa())
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -158,53 +182,58 @@ retornar algum valor.
 Qual a cor atual do carro?
 */
 
-console.log(carro.cor) // Preto
+console.log(carro.obterCor()) // Preto
  
 
 // Mude a cor do carro para vermelho.
 
-console.log(carro.mudaCor())
-console.log(carro.cor)
+console.log(carro.mudaCor('Preto'))
+
 
 
 // E agora, qual a cor do carro?
 
-//Vermelho
+console.log(carro.obterCor())
 
 
 // Mude a cor do carro para verde musgo.
 
-carro.mudaCor = function () {
-
-    carro.cor = 'Verde Musgo'
-}
+carro.mudaCor('Verde Musgo') 
 
 
 // E agora, qual a cor do carro?
 
-console.log(carro.mudaCor())
-console.log(carro.cor)
+console.log(carro.obterCor())
 
 
 // Qual a marca e modelo do carro?
 
-console.log(carro.marca)
-console.log(carro.modelo)
+console.log(carro.obterMarcaMOdelo())
+
 
 
 // Adicione 2 pessoas no carro.
 
+console.log(carro.pessoa(2)) //'Já temos 2 pessoas '
 
 // Adicione mais 4 pessoas no carro.
+
+console.log(carro.pessoa(4)) // Só cabem mais 3 Pessoas
 
 
 // Faça o carro encher.
 
+console.log(carro.pessoa(3)) //Já temos 5 pessoas
 
 // Tire 4 pessoas do carro.
 
+console.log(carro.pessoa(-4)) //Já temos 1 pessoas 
 
 // Adicione 10 pessoas no carro.
 
+console.log(carro.pessoa(10))
 
 // Quantas pessoas temos no carro?
+
+console.log(carro.quantidadesPessoas) //1
+
