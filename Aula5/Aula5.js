@@ -11,16 +11,25 @@ let myVar = [ 1 , 'michell' , null , function() {} , '' ]
 Crie uma função que receba um array como parâmetro, e retorne esse array.
 */
 
+// 1º FORMA
+/*let myFunction = function(myVar) {
+
+    return myVar
+
+}
+*/
+// 2º FORMA
 function myFunction (myVar) {
 
-    return myFunction()
+    return myVar
  }
 
+ 
 /*
 Imprima o segundo índice do array retornado pela função criada acima.
 */
 
-console.log(myVar[1])
+console.log(myFunction (myVar[1]))
 
 /*
 Crie uma função que receba dois parâmetros: o primeiro, um array de valores; e o
@@ -28,8 +37,11 @@ segundo, um número. A função deve retornar o valor de um índice do array que
 no primeiro parâmetro. O índice usado para retornar o valor, deve ser o número passado no
 segundo parâmetro.
 */
+function doisValores (arr, ind) {
+    
+    return arr[ind]
 
-
+}
 
 /*
 Declare uma variável que recebe um array com 5 valores, de tipos diferentes.
@@ -42,12 +54,13 @@ Invoque a função criada acima, fazendo-a retornar todos os valores do último
 array criado.
 */
 
-function minhaFunction (var2) {
 
-    return minhaFunction
-}
+console.log(doisValores(var2,0))
+console.log(doisValores(var2,1))
+console.log(doisValores(var2,2))
+console.log(doisValores(var2,3))
+console.log(doisValores(var2,4))
 
-console.log(minhaFunction(var2))
 /*
 Crie uma função chamada `book`, que recebe um parâmetro, que será o nome do
 livro. Dentro dessa função, declare uma variável que recebe um objeto com as
@@ -62,7 +75,38 @@ propriedades:
 - Se o parâmetro não for passado, a função deve retornar o objeto com todos
 os livros.
 */
-// ?
+function book (bookName)  {  
+
+    let allBooks = { 
+
+        'Segredos do Ninja Javascript ': {
+
+            quantidadePaginas: 488 ,
+            autor: 'John Resig & Bear Bibeault',
+            editora: 'Novatec',
+        } ,
+
+        'Introduçao ao HTML5': {
+
+            quantidadePaginas: 220 ,
+            autor: 'Bruce Lawson & Remy Sharp ',
+            editora: 'Alta Books '
+        } ,
+
+        'Smashing CSS': {
+
+            quantidadePaginas: 283 ,
+            autor: 'Erick A. Meyer',
+            editora: 'Bookman'
+        } ,
+       
+    }
+
+
+
+    
+
+}
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
