@@ -79,7 +79,7 @@ function book (bookName)  {
 
     let allBooks = { 
 
-        'Segredos do Ninja Javascript ': {
+        'Segredos do Ninja Javascript': {
 
             quantidadePaginas: 488 ,
             autor: 'John Resig & Bear Bibeault',
@@ -89,7 +89,7 @@ function book (bookName)  {
         'Introduçao ao HTML5': {
 
             quantidadePaginas: 220 ,
-            autor: 'Bruce Lawson & Remy Sharp ',
+            autor: 'Bruce Lawson & Remy Sharp',
             editora: 'Alta Books '
         } ,
 
@@ -99,37 +99,48 @@ function book (bookName)  {
             autor: 'Erick A. Meyer',
             editora: 'Bookman'
         } ,
-       
+        }
+
+   // if(!bookName) {
+
+  //      return allBooks
+
+  return !bookName ? allBooks : allBooks [bookName] // 2º forma de usar return (com ternarios " ? " e ":")
+
     }
 
 
+ 
 
-    
-
-}
 
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
-// ?
+
+console.log(book())
+
 
 /*
 Ainda com a função acima, imprima a quantidade de páginas de um livro qualquer,
 usando a frase:
-"O livro [NOME_DO_LIVRO] tem [X] páginas!"
+
 */
-// ?
+
+console.log(`O livro ${`Segredos do Ninja Javascript`} tem ${book( 'Segredos do Ninja Javascript' ).quantidadePaginas} paginas!' `)
 
 /*
 Ainda com a função acima, imprima o nome do autor de um livro qualquer, usando
 a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
-// ?
+
+console.log(`O autor do livro ${`Segredos do Ninja Javascript`} é ${book( 'Segredos do Ninja Javascript' ).autor} `)
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-// ?
+
+var bookName = 'Introduçao ao HTML5'
+console.log(`O livro ${bookName} foi publicado pela editora ${book( bookName).editora} `)
